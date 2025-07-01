@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Product - Hour Hand</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="name" content="Hour Hand" />
+		<meta
+			name="description"
+			content="Online Watch Store with Amazing Collection of Watches"
+		/>
+        <!-- Link tag for Fav Icon -->
+		<link rel="shortcut icon" href="../images/logo.png" type="image/x-icon" />
+        <!-- Link tag for External CSS -->
+		<link rel="stylesheet" href="../CSS/style.css" />
+		
+        <!-- Internal CSS -->
+        <style>
+			.ItemContainer {
+				display: flex;
+				padding: 15px;
+				flex-wrap: wrap;
+				row-gap: 20px;
+				justify-content: space-around;
+			}
+			.card {
+				background-color: rgb(206, 204, 252);
+				padding: 15px 20px;
+				border-radius: 8px;
+				transition: 0.2s ease;
+			}
+			.cardImg {
+				width: 250px;
+				border-radius: 10px;
+				height: 260px;
+			}
+			.card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0px 5px 10px 0px gray;
+			}
+			.cardImg img {
+				width: 100%;
+				border-radius: 10px;
+				height: 250px;
+				object-fit: contain;
+				background-color: white;
+			}
+			.cardImg p {
+				padding: 5px;
+				background-color: rgb(59, 40, 126);
+				width: max-content;
+				border-radius: 5px;
+				color: white;
+				position: relative;
+				bottom: 35px;
+				left: 2px;
+				margin-bottom: 0px;
+			}
+			.cardItem {
+				display: flex;
+				flex-direction: column;
+			}
+			.cardItem p {
+				text-align: center;
+				margin-top: 0px;
+				font-family: sans-serif;
+				color: rgb(59, 40, 126);
+				font-size: 20px;
+				font-weight: bold;
+			}
+			.cardItem span {
+				text-decoration: line-through;
+				font-size: 16px;
+				color: gray;
+				font-weight: normal;
+			}
+			.cardItem h1 {
+				text-align: center;
+				margin-top: 0px;
+				color: rgb(3, 3, 37);
+			}
+			.btn {
+				background-color: rgb(21, 19, 76);
+				border: none;
+				border-radius: 10px;
+				padding: 7px 15px;
+				color: white;
+				font-weight: bold;
+				font-size: 15px;
+				cursor: pointer;
+			}
+			.btn:hover {
+				background-color: rgb(10, 7, 99);
+			}
+			.headings {
+				color: rgb(19, 19, 87);
+				font-size: 45px;
+				margin-bottom: 10px;
+				text-align: center;
+			}
+			.cart p {
+				position: absolute;
+				top: -5px;
+				left: 94.7%;
+				color: white;
+				font-size: 16px;
+				border: 1px solid white;
+				border-radius: 50%;
+				padding: 0px 5px;
+			}
+			.slider {
+				margin-top: 0;
+				overflow: hidden;
+			}
+			.slide {
+				display: flex;
+				width: 100%;
+				height: 280px;
+				animation: imageSlide 7s infinite ease-in-out;
+			}
+			.slide img {
+				width: 100%;
+				height: 100%;
+				flex-shrink: 0;
+				object-fit: fit;
+			}
+            /* Image Slider Animation */
+			@keyframes imageSlide {
+				0% {
+					transform: translateX(0%);
+				}
+				33% {
+					transform: translateX(0%);
+				}
+				45% {
+					transform: translateX(-100%);
+				}
+				60% {
+					transform: translateX(-100%);
+				}
+				80% {
+					transform: translateX(-200%);
+				}
+				100% {
+					transform: translateX(-200%);
+				}
+			}
+		</style>
+        <!-- Internal CSS Ends -->
+	</head>
+	<body>
+
+		<header>
+            <!-- Anchor Tag for Internal Link -->
+			<a id="top"></a>
+            <!-- Adding navigation -->
+			<nav>
+				<div class="brand">
+					<img src="../images/logo.png" alt="Brand Logo" width="90px" height="90px" />
+					<a href="../index.html">
+						<h1>Hour Hand</h1>
+					</a>
+				</div>
+				<div class="links">
+					<ul>
+						<li><a href="../index.html">Home</a></li>
+						<li><a href="#top" style="text-decoration: underline; color: yellow">Product</a></li>
+						<li><a href="./AboutUs.html">About</a></li>
+						<li><a href="./Research.html">Research</a></li>
+						<li><a href="./blogpage.html">Blog</a></li>
+						<!-- Adding Extra list item for Cart Logo -->
+                        <li>
+							<div class="cart">
+								<img src="../images/shopping-cart.png" style="color: white" alt="cartLogo" />
+                                <!-- Number of Items added in the cart -->
+                                <p id="cartCount">0</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+            <!-- Pseudo Div for covering vacant space created by fixed navbar -->
+			<div class="pseudoNav"></div>
+		</header>
+        <!-- Marque tag for offer notification -->
+		<marquee
+			behavior="alternate"
+			scrollamount="15"
+			style="margin-bottom: 0; padding: 8px; background-color: rgb(168, 166, 218); color: rgb(22, 22, 69)"
+		>
+			Offer!! Offer!! Offer!! 10% off on all Watch Items. Valid from 10 Feb to 12 Feb only.
+		</marquee>
+        <!-- Main Section Starts -->
+		<main>
+            <!-- Image Slider Div -->
+			<div class="slider">
+				<div class="slide">
+					<img src="../images/productSlide1.jpg" alt="" />
+					<img src="../images/productSlide2.jpg" alt="" />
+					<img src="../images/productSlide3.jpg" style="object-fit: cover" alt="" />
+				</div>
+			</div>
+
+            <!-- Premium Watch Section Starts -->
+			<section class="Premium">
+				<h1 class="headings">Premium Watch Collection</h1>
+                <!-- Main Container for items -->
+				<div class="ItemContainer">
+                    <!-- Card class represents each item  -->
+					<div class="card">
+						<div class="cardImg">
+							<img src="../images/premium1.jpg" alt="" />
+						</div>
+						<div class="cardItem">
+							<p>Rs.3,08,000</p>
+							<h1>
+								Titan Nebula Vintage
+								<br />
+								18k Gold
+							</h1>
+                            <!-- onclick event calls CartCounter function which increases number of items in a cart  -->
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card">
+						<div class="cardImg">
+							<img src="../images/premium2.jpg" alt="" />
+						</div>
+						<div class="cardItem">
+							<p>Rs.15,115</p>
+							<h1>
+								Police Quartz Analog
+								<br />
+								Blue Leather Strap
+							</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card">
+						<div class="cardImg">
+							<img src="../images/premium3.jpg" alt="" />
+						</div>
+						<div class="cardItem">
+							<p>Rs.27,000</p>
+							<h1>
+								Xylys Swiss Analog
+								<br />
+								Shimmer Steel
+							</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card">
+						<div class="cardImg">
+							<img src="../images/forsining3.jpg" alt="" />
+						</div>
+						<div class="cardItem">
+							<p>Rs.1,29,999</p>
+							<h1>
+								Forsining H009M
+								<br />
+								Skeleton Mechanical
+							</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card" style="margin: 0 -50px 0 50px">
+						<div class="cardImg">
+							<img src="../images/rolex.jpg" alt="" />
+						</div>
+						<div class="cardItem">
+							<p>Rs.87,43,000</p>
+							<h1>Rolex Deap Sea</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card">
+						<div class="cardImg">
+							<img src="../images/premium4.jpg" alt="" />
+						</div>
+						<div class="cardItem">
+							<p>Rs.1,35,999</p>
+							<h1>
+								G-Shock
+								<br />
+								MTGB3000D1A9
+							</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card" style="margin: 0 50px 0 -50px">
+						<div class="cardImg">
+							<img src="../images/premium5.jpg" alt="" />
+						</div>
+						<div class="cardItem">
+							<p>Rs.7,999</p>
+							<h1>
+								Fastrack Magnus FX3
+								<br />
+								Luxury Metal
+							</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+				</div>
+			</section>
+            <!-- Premium Section Ends -->
+
+            <!-- Special Offer Section Starts -->
+			<section class="specialOffer" style="margin: 50px 0 40px">
+				<h1 class="headings">Special Discounts</h1>
+
+				<div class="ItemContainer">
+					<div class="card">
+						<div class="cardImg">
+							<img src="../images/offer.jpg" alt="" />
+							<p class="discountPercent">-10%</p>
+						</div>
+						<div class="cardItem">
+							<p>
+								Rs.2349
+								<span>Rs.2439</span>
+							</p>
+							<h1>Golden Terrox Premium</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card">
+						<div class="cardImg">
+							<img src="../images/offer2.jpg" alt="" />
+							<p class="discountPercent">-5%</p>
+						</div>
+						<div class="cardItem">
+							<p>
+								Rs.4,274
+								<span>Rs.4,499</span>
+							</p>
+							<h1>Seiko Stainless Analog</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card">
+						<div class="cardImg">
+							<img src="../images/offer3.jpg" alt="" />
+							<p class="discountPercent">-8%</p>
+						</div>
+						<div class="cardItem">
+							<p>
+								Rs.2,299
+								<span>Rs.2,499</span>
+							</p>
+							<h1>Gurkha Premium</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card">
+						<div class="cardImg">
+							<img src="../images/hilfiger.jpg" alt="" />
+							<p class="discountPercent">-10%</p>
+						</div>
+						<div class="cardItem">
+							<p>
+								Rs.6,750
+								<span>Rs.7,500</span>
+							</p>
+							<h1>Tommy Hilfiger Quartz</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+				</div>
+			</section>
+            <!-- Special Offer Section Ends -->
+
+            <!-- SmartWatch Section Starts -->
+            <section class="Smartwatch" style="margin-bottom: 40px">
+				<h1 class="headings">Smart Watch Collection</h1>
+
+				<div class="ItemContainer">
+					<div class="card">
+						<div class="cardImg">
+							<img src="../images/applewatch2.jpg" alt="" />
+						</div>
+						<div class="cardItem">
+							<p>Rs.1,29,999</p>
+							<h1>Apple Watch Ultra 2</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card">
+						<div class="cardImg">
+							<img src="../images/applewatch3.jpg" alt="" />
+						</div>
+						<div class="cardItem">
+							<p>Rs.55,999</p>
+							<h1>Apple Watch Series 10</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card">
+						<div class="cardImg">
+							<img src="../images/applewatch.jpg" alt="" />
+						</div>
+						<div class="cardItem">
+							<p>Rs.35,499</p>
+							<h1>Apple Watch SE</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card">
+						<div class="cardImg">
+							<img src="../images/smartwatch1.jpg" alt="" />
+						</div>
+						<div class="cardItem">
+							<p>Rs.15,999</p>
+							<h1>Redmi Watch 5</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card" style="margin: 0 -50px 0 50px">
+						<div class="cardImg">
+							<img src="../images/smartwatch2.jpg" alt="" />
+						</div>
+						<div class="cardItem">
+							<p>Rs.11,400</p>
+							<h1>Huawei GT Runner</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card">
+						<div class="cardImg">
+							<img src="../images/smartwatch3.jpg" alt="" />
+						</div>
+						<div class="cardItem">
+							<p>Rs.9,499</p>
+							<h1>Galaxy Active Smartwatch</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+					<div class="card" style="margin: 0 50px 0 -50px">
+						<div class="cardImg">
+							<img src="../images/smartwatch4.jpg" alt="" />
+						</div>
+						<div class="cardItem">
+							<p>Rs.4,999</p>
+							<h1>Fastrack Radiant Luxury</h1>
+							<button class="btn" onclick="cartCounter()">Add To Cart</button>
+						</div>
+					</div>
+				</div>
+			</section>
+            <!-- SmartWatch Section Ends -->
+		</main>
+        <!-- Main Section Ends -->
+		
+        <!-- Footer Container Starts -->
+        <footer>
+			<p>Copyright © 2025, All Rights Reserved.</p>
+			<p>Hour Hand®</p>
+		</footer>
+        <!-- Footer Container Ends -->
+
+
+        <!-- Internal Javascript  -->
+		<script>
+            // cartCounter function to increase number of item in cart
+			function cartCounter() {
+				count = document.getElementById("cartCount").textContent;  //fetches current number of item in cart
+				count++; //increases count number by 1
+				document.getElementById("cartCount").textContent = count; //updates the new count of item in cart
+			}
+		</script>
+        <!-- Internal Javascript ends -->
+	</body>
+</html>

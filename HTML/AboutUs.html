@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <!-- Meta Tags for Page Information -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="name" content="Hour Hand" />
+		<meta name="description" content="Online Watch Store with Amazing Collection of Watches" />
+		<title>About Us - Hour Hand</title>
+
+        <!-- Link tag for Fav Icon -->
+		<link rel="shortcut icon" href="../images/logo.png" type="image/x-icon" />
+
+        <!-- Link tag for External CSS -->
+		<link rel="stylesheet" href="../CSS/style.css" />
+
+        <!-- Calling External Javascript file -->
+		<script src="../JS/toggleFunction.js"></script>
+		
+        <!-- Internal CSS Starts -->
+        <style>
+
+            /* Style for Main section */
+			main {
+				height: 90%;
+			}
+			main .content {
+				display: flex;
+				justify-content: space-around;
+			}
+
+			.mainImg {
+				padding: 10px;
+				width: 500px;
+				margin: 50px 0;
+				height: 350px;
+			}
+			.mainImg img {
+				width: 100%;
+				height: 100%;
+			}
+			main .content .aboutDesc {
+				width: 500px;
+				height: 350px;
+			}
+			.heading {
+				font-size: 3rem;
+				color: rgb(57, 57, 114);
+			}
+
+            /* Style for go down button */
+			.belowBtn {
+				transition: 0.1s ease-in-out;
+				overflow: hidden;
+			}
+			.belowBtn a:hover {
+				background-color: rgb(57, 57, 114);
+				color: white;
+			}
+			.belowBtn:hover {
+				transform: scale(1.1);
+			}
+
+
+			/* Members section starts */
+			.members {
+				height: 100%;
+				width: 100%;
+			}
+			.members .cardContainer {
+				display: flex;
+				justify-content: space-evenly;
+				gap: 40px;
+				margin: 3% 6% -5%;
+			}
+			.members .cardContainer .cards {
+				width: 100%;
+				height: 100%;
+				border: 2px solid rgb(57, 57, 114);
+				padding: 15px 10px 15px;
+				border-radius: 10px;
+				background-color: #ede7e3;
+				box-shadow: 3px 2px 5px 0.9px rgb(104, 104, 90);
+				transition: 0.3s ease;
+			}
+            /* Shifting cards 5px up when hovered */
+			.cards:hover {
+				transform: translateY(-5px);
+			}
+
+			.members .cardContainer .cards .pfp {
+				width: 100px;
+				height: 100px;
+				border: 2px solid rgb(57, 57, 114);
+				border-radius: 50%;
+				overflow: hidden;
+				box-shadow: 2px 1px 7px 0.9px rgb(158, 157, 157);
+			}
+			.members .cardContainer .cards .pfp img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.cards h2 {
+				color: rgb(57, 57, 114);
+			}
+
+			.cards .detail {
+				text-align: center;
+			}
+
+			.cardsTop {
+				display: flex;
+				gap: 20px;
+			}
+			.pfp {
+				width: 100px;
+				overflow: hidden;
+			}
+			.pfp img {
+				width: 100%;
+			}
+			.detailBox1 p {
+				margin-top: -8px;
+				color: rgb(44, 44, 79);
+			}
+			.cardsBottom p {
+				color: rgb(26, 22, 39);
+				text-align: justify;
+				padding-inline: 4px;
+			}
+
+			.btn {
+				transition: 0.2s;
+				font-weight: bold;
+				font-size: 13px;
+				color: rgb(57, 57, 114);
+				border: 1px solid rgb(57, 57, 114);
+				border-radius: 8px;
+			}
+			.cvOpen-btn {
+				display: flex;
+				margin: 0 auto;
+				border-radius: 5px;
+				color: white;
+				background-color: rgb(83, 83, 128);
+			}
+			.btn:hover {
+				background-color: rgb(57, 57, 114);
+				color: white;
+			}
+
+			/* Popup Form Section */
+			.popup-form {
+				display: none; /*Initially display set to none, when open button clicked it changes to flex using JS function */
+				position: fixed;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				justify-content: center;
+				align-items: center;
+				background-color: rgba(0, 0, 0, 0.1);
+				z-index: 1000;
+			}
+            /* Animation for Popup Effect */
+			@keyframes popup {
+				0% {
+					transform: scale(0.6);
+					opacity: 0;
+				}
+				50% {
+					transform: scale(1.1);
+				}
+
+				100% {
+					transform: scale(1);
+					opacity: 1;
+				}
+			}
+
+			.popupContainer {
+				position: relative;
+				width: 60%;
+				text-align: center;
+				background-color: white;
+				padding: 30px;
+				border-radius: 20px;
+				display: flex;
+				justify-content: space-around;
+				animation: popup 0.4s ease-in-out; /*Giving transition property for smoother animations*/
+			}
+			.formHeading {
+				margin: 10% auto;
+			}
+			.feedback-form {
+				display: flex;
+				flex-direction: column;
+				gap: 15px;
+				width: 60%;
+			}
+			.closeButton {
+				position: absolute;
+				top: 15px;
+				left: 15px;
+				font-size: 2rem;
+				font-weight: bolder;
+				border-radius: 50%;
+				padding: 3px 10px;
+				cursor: pointer;
+				color: rgb(64, 64, 145);
+			}
+			.input-field {
+				margin: 0 auto;
+				width: 70%;
+				outline: none;
+				padding: 10px 15px;
+				box-sizing: border-box;
+				font-size: 1rem;
+				border-radius: 10px;
+				border: none;
+				background-color: rgb(211, 209, 209);
+				color: rgb(108, 108, 146);
+				caret-color: rgb(64, 64, 145);
+			}
+
+			.submit-btn:hover {
+				background-color: rgb(172, 171, 171);
+			}
+            /* Popup Form Ends */
+
+            /* CV Popup Section Starts */
+            #cvPopup {
+				position: fixed;
+				top: 18%;
+				left: 10%;
+				background-color: rgb(223, 222, 227);
+				width: 80%;
+				height: 80%;
+				box-shadow: 0px 0px 100px 0px rgba(232, 222, 249, 0.252);
+				border: none;
+				border-radius: 13px;
+				animation: popup 0.7s ease-in-out;
+				justify-content: space-around;
+			}
+
+			#cvPopup .links img {
+				width: 25px;
+			}
+
+			#qualification {
+				background-color: rgb(190, 190, 245);
+				padding: 5px;
+				border-radius: 5px;
+				border: 0.5px solid gray;
+			}
+			#qualification tr {
+				line-height: 30px;
+			}
+			#qualification th {
+				background-color: rgb(48, 48, 98);
+				color: rgb(232, 232, 232);
+				border: 0.5px solid gray;
+				border-radius: 3px;
+			}
+			#qualification td {
+				border: 0.5px solid gray;
+				border-radius: 3px;
+				padding: 5px;
+				color: rgb(19, 19, 75);
+				background-color: rgb(223, 223, 246);
+			}
+			.cvDetail table th {
+				color: rgb(19, 19, 75);
+			}
+			.cvDetail table td {
+				color: rgb(51, 51, 138);
+			}
+
+			.cvImage:hover {
+				transform: translateY(-5px);
+			}
+            /* CV Popup Section Ends */
+		</style>
+        <!-- Internal CSS Ends -->
+	</head>
+	<body>
+		<header>
+            <!-- Internal Link for Top Section -->
+			<a id="top"></a>
+            <!-- Adding navigation -->
+			<nav>
+				<div class="brand">
+					<img src="../images/logo.png" alt="Brand Logo"  />
+					<a href="">
+						<h1>Hour Hand</h1>
+					</a>
+				</div>
+				<div class="links">
+					<ul>
+						<li><a href="../index.html">Home</a></li>
+						<li><a href="./product.html">Product</a></li>
+						<li><a href="#top" style="text-decoration: underline; color: yellow">About</a></li>
+						<li><a href="./Research.html">Research</a></li>
+						<li><a href="./blogpage.html">Blog</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="pseudoNav"></div>
+		</header>
+
+        <!-- Main Section Starts -->
+		<main>
+
+			<div class="content">
+				<!-- Left Image Section -->
+				<section class="mainImg">
+					<img src="../images/aboutPageMain.png" alt="" />
+				</section>
+				<!-- Right Text and description section -->
+				<section class="aboutDesc">
+					<h1 style="text-align: right; text-decoration: underline; text-underline-offset: 10px" class="heading">
+						About Us
+					</h1>
+					<p style="text-align: justify; font-size: 1.1rem; color: rgb(42, 42, 74); line-height: 25px">
+						<strong>Welcome to our online watch store!</strong>
+						We are first-year Bachelor's students at Islington College, Kathmandu, pursuing BSc. (Hons) in Computing.
+						This website is part of our Information Systems module project, where we collaborate as a team of five. Each
+						member is responsible for designing one of the five pages, ensuring a blend of creativity and functionality
+						using HTML, CSS, JavaScript, and wireframes. Our goal is to provide a user-friendly platform that showcases
+						our skills and dedication. Thank you for visiting our project. We hope you enjoy exploring our work as much
+						as we enjoyed creating it!
+					</p>
+
+                    <!-- onclick event triggers toggleDisplay function where id of element is passed as parameter, which toggles display of the element -->
+					<button
+						style="display: flex; margin: 40px auto; padding: 8px 20px; border-radius: 15px; border: 1px solid"
+						class="btn"
+						onclick="toggleDisplay('popupForm')" 
+					>
+						Give Us Feedback
+					</button>
+
+                    <!-- PopupForm Div starts -->
+					<div id="popupForm" class="popup-form" style="display: none">
+						<div class="popupContainer">
+                            <!-- Close Button calls toggleDisplay function which closes the popupform  -->
+							<div class="closeButton" onclick="toggleDisplay('popupForm')">&times;</div>
+							<div class="formHeading">
+								<h1 style="font-size: 2.3rem; font-weight: bolder; color: rgb(64, 64, 145); margin-bottom: 0px">
+									Feedback Form
+								</h1>
+								<p style="margin-top: 10px; font-size: 0.9rem; color: rgb(108, 108, 146)">
+									Leave a message for our Website
+								</p>
+							</div>
+							<form class="feedback-form" name="feedback-form" id="feedbackForm" onsubmit="formValidate(event)">
+								<input type="text" name="Fname" id="Fname" placeholder="First Name" class="input-field" />
+								<input type="text" name="Lname" id="Lname" placeholder="Last Name" class="input-field" />
+								<input type="email" name="mail" id="mail" placeholder="Mail Address" class="input-field" />
+								<input type="tel" name="contact" id="contact" placeholder="Contact No." class="input-field" />
+								<textarea
+									name="feedbackArea"
+									style="resize: none"
+									id="feedbackArea"
+									placeholder="Your Feedback"
+									class="input-field"
+									rows="5"
+								></textarea>
+								<button
+									type="submit"
+									class="input-field submit-btn"
+									style="width: 40%; color: rgb(39, 39, 39); font-weight: bold; color: rgb(64, 64, 145)"
+								>
+									Submit
+								</button>
+							</form>
+						</div>
+					</div>
+                    <!-- Popup Form Div Ends -->
+				</section>
+
+			</div>
+			<!-- div for below button -->
+			<div class="belowBtn" style="width: max-content; display: flex; margin: 40px auto">
+				<a
+					href="#team"
+					style="
+						text-decoration: none;
+						font-size: 1.3rem;
+						text-align: center;
+						padding: 5px 15px 10px;
+						border: 1px solid black;
+						border-radius: 50%;
+						transition: 0.1s;
+					"
+				>
+					↓
+				</a>
+			</div>
+		</main>
+        <!-- Internal Link for Team Section -->
+		<a id="team"></a>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<!-- Members Sections starts -->
+		<section class="members">
+			<!-- Title  -->
+			<div>
+				<h1 class="heading" style="margin-left: 20px">Our Team</h1>
+				<hr>
+			</div>
+
+			<!-- Members main div -->
+			<div class="cardContainer">
+				<!--For first 3 member-->
+
+				<!-- Profile cards -->
+				<div class="cards" member-id="0">
+					<div class="cardsTop">
+						<div class="pfp">
+							<img src="../images/memberRounak1.jpg" alt="" />
+						</div>
+						<div class="detailBox1">
+							<h2>Rounak Bhandari</h2>
+							<p style="font-size: 13px">Front-End Developer, Team Leader</p>
+						</div>
+					</div>
+					<div class="cardsBottom">
+						<p>
+							<i>
+								"It was fun and I learned a lot designing and developing this website. The teamwork led this entire
+								project build successful. Grateful for getting this opportunity. Thanks to all team members and
+								mentors."
+							</i>
+						</p>
+						<button style="padding: 8px 15px" class="btn cvOpen-btn" onclick="showCV(0)">About Me</button>
+						<div></div>
+					</div>
+				</div>
+
+				<div class="cards" member-id="1">
+					<div class="cardsTop">
+						<div class="pfp">
+							<img src="../images/memberYug1.jpg" alt="" />
+						</div>
+						<div class="detailBox1">
+							<h2>Yug Gautam</h2>
+							<p style="font-size: 13px">Home-Page Developer</p>
+						</div>
+					</div>
+					<div class="cardsBottom">
+						<p>
+							<i>
+								"Creating this website was both challenging and rewarding. It helped me enhance my technical expertise,
+								improve my problem-solving skills, and develop a deeper understanding of the practical aspects of web
+								development."
+							</i>
+						</p>
+						<button style="padding: 8px 15px" class="btn cvOpen-btn" onclick="showCV(1)">About Me</button>
+						<div></div>
+					</div>
+				</div>
+				<div class="cards" member-id="2">
+					<div class="cardsTop">
+						<div class="pfp">
+							<img src="../images/memberBinishaan2.jpg" alt="" />
+						</div>
+						<div class="detailBox1">
+							<h2>Binishaan Basnet</h2>
+							<p style="font-size: 13px">Blog-Page Developer</p>
+						</div>
+					</div>
+					<div class="cardsBottom">
+						<p>
+							<i>
+								"Designing and developing this website was a fulfilling experience. It provided a platform to experiment
+								with creative ideas while honing my coding skills and understanding the importance of usability and
+								functionality."
+							</i>
+						</p>
+						<button style="padding: 8px 15px" class="btn cvOpen-btn" onclick="showCV(2)">About Me</button>
+						<div></div>
+					</div>
+				</div>
+			</div>
+
+            <!-- For Remaining 2 Member -->
+			<div class="cardContainer" style="margin: 10% 20%; padding-bottom: 40px">
+				<div class="cards" member-id="3">
+					<div class="cardsTop">
+						<div class="pfp">
+							<img src="../images/memberRuben1.jpg" alt="" />
+						</div>
+						<div class="detailBox1">
+							<h2>Ruben Rai</h2>
+							<p style="font-size: 13px">Product-Page Developer</p>
+						</div>
+					</div>
+					<div class="cardsBottom">
+						<p>
+							<i>
+								"Building this website was an exciting journey that enhanced my creativity and technical skills. I
+								enjoyed turning ideas into a functional platform, gaining valuable insights into web design and
+								development"
+							</i>
+						</p>
+						<button style="padding: 8px 15px" class="btn cvOpen-btn" onclick="showCV(3)">About Me</button>
+						<div></div>
+					</div>
+				</div>
+				<div class="cards" member-id="4">
+					<div class="cardsTop">
+						<div class="pfp">
+							<img src="../images/memberSajil1.jpg" alt="" />
+						</div>
+						<div class="detailBox1">
+							<h2>Sajil Shrestha</h2>
+							<p style="font-size: 13px">Research-Page Developer</p>
+						</div>
+					</div>
+					<div class="cardsBottom">
+						<p>
+							<i>
+								"This project was a fantastic opportunity to strengthen my coding abilities. It allowed me to explore
+								innovative approaches and gain hands-on experience in designing an engaging and functional webpage."
+							</i>
+						</p>
+						<button style="padding: 8px 15px" class="btn cvOpen-btn" onclick="showCV(4)">About Me</button>
+						<div></div>
+					</div>
+				</div>
+
+				<!-- Popup CV Div -->
+				<div id="cvPopup" style="display: none" class="">
+					<div class="closeButton" onclick="toggleDisplay('cvPopup')">&times;</div>
+
+					<div class="cvLeft" style="margin: 30px auto; margin-right: -30px">
+						<div
+							class="cvImage"
+							style="
+								width: 250px;
+								height: 250px;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								overflow: hidden;
+								padding: 3px;
+								transition: all 0.3s ease-in-out;
+							"
+						>
+							<img
+								src="../images/rounak.jpg"
+								alt=""
+								id="cvImage"
+								style="
+									width: 100%;
+									height: 100%;
+									border: 3px solid rgb(38, 38, 117);
+									border-radius: 8px;
+									object-fit: cover;
+								"
+							/>
+						</div>
+						<h1 id="cvName" style="text-align: center; color: rgb(38, 38, 117)">Rounak Bhandari</h1>
+						<p id="cvDesc" style="text-align: center; margin-top: -20px; font-size: 12px; color: rgb(57, 57, 114)">
+							Front-End Developer, Student
+						</p>
+						<div class="cvDetail" style="margin: 0 -80px">
+							<table style="text-align: left; border-spacing: 10px">
+								<tr>
+									<th>Date of Birth:</th>
+									<td id="cvDOB"></td>
+								</tr>
+								<tr>
+									<th>Address:</th>
+									<td id="cvAddress"></td>
+								</tr>
+								<tr>
+									<th>Email:</th>
+									<td id="cvMail"></td>
+								</tr>
+								<tr>
+									<th>Phone No. :</th>
+									<td id="cvNum"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div
+						class="vertical-line"
+						style="width: 2px; height: 90%; background-color: rgb(38, 38, 117); border-radius: 10px; margin: auto"
+					></div>
+					<div class="cvRight" style="margin-right: 40px; width: 50%; display: flex; flex-direction: column">
+						<h1 style="color: rgb(57, 57, 114)">Executive Summary</h1>
+						<p id="cvES" style="margin-top: -10px; margin-bottom: -10px"></p>
+						<table id="qualification">
+							<h1 style="color: rgb(57, 57, 114)">Qualification</h1>
+						</table>
+						<div class="cvRightBottom" style="margin: auto">
+							<h1 style="text-align: center; color: rgb(57, 57, 114)">Contact me</h1>
+							<div class="links" style="margin: 0px auto; display: flex; justify-content: space-around">
+								<a href="" id="fbLink" target="_blank"><img src="../images/facebookLogo.png" alt="" /></a>
+								<a href="" id="igLink" target="_blank"><img src="../images/instagramLogo.png" alt="" /></a>
+								<a href="" id="mailLink"><img src="../images/mailLogo.png" alt="" style="transform: scale(1.5)" /></a>
+							</div>
+						</div>
+					</div>
+				</div>
+                <!-- CV popup ends -->
+			</div>
+		</section>
+        <!-- Members Section end-->
+
+
+		<!-- Footer Section Starts -->
+		<footer>
+			<p>Copyright © 2025, All Rights Reserved.</p>
+			<p>Hour Hand®</p>
+		</footer>
+        <!-- Footer Section Ends -->
+
+        <!-- Internal Javascript -->
+		<script>
+            // showCV function takes memberID as parameter to show the information of respective member
+			function showCV(memberID) {
+				fullname = ["Rounak Bhandari", "Yug Gautam", "Binishaan Basnet", "Ruben Rai", "Sajil Shrestha"]; //array for names of members
+				dob = ["2000/07/18", "2007/04/04", "2006/08/01", "2004/12/06", "2005/12/09"]; //array for date of birth of members
+				address = ["Bhairahawa, Nepal", "Kathmandu, Nepal", "Bhaktapur, Nepal", "dsfds", "Kalanki, Kathmandu"]; //array for address of members
+				executiveSummary = [
+					"Energetic, passionate, and detail-oriented computing student with a strong foundation in web development, including HTML, CSS, JavaScript, and the MERN stack. Skilled at creating functional and visually appealing designs, I thrive in collaborative environments and team projects. Dedicated to continuous improvement, I bring creativity, problem-solving skills, and enthusiasm to every task. With a commitment to learning and adapting, I aim to contribute meaningfully to the ever-evolving tech landscape.",
+					"Yug Gautam, a high school graduate currently pursuing studies at Islington College, is an aspiring IT professional with a strong passion for technology and innovation. He is focused on building a solid foundation in Information Technology, starting with mastering essential skills such as web development using HTML and CSS.",
+					"I am an academically driven individual with a management background complemented by mathematics and computer science as additional subjects, reflecting a blend of analytical and technical expertise. I have completed their higher secondary education at Global College of Management, where i undertook notable projects, showcasing my ability to apply theoretical knowledge to practical scenarios.",
+					"",
+					"Sajil Shrestha, an enthusiastic IT student from KMC +2 and currently pursuing a Bachelor's degree at Islington, is passionate about technology and innovation. With a strong foundation in IT, Sajil aims to leverage his skills in programming and problem-solving to contribute to the tech industry and further his professional growth.",
+				]; //array for ES of members
+				mail = [
+					"np01cp4a240094@islingtoncollege.edu.np",
+					"np01cp4a240193@islingtoncollege.edu.np",
+					"np01cp4a240084@islingtoncollege.edu.np",
+					"np01cp4a230227@islingtoncollege.edu.np",
+					"np01cp4a240084@islingtoncollege.edu.np",
+				]; //array for mail address of members
+				desc = ["Front-End Developer, Student"]; //array for description of members
+				pnum = ["9864444623", "9765964971", "9840076276", "9808053015", "9803700730"]; //array for number of members
+				img = [
+					"../images/memberRounak2.jpg",
+					"../images/memberYug2.jpg",
+					"../images/memberBinishaan1.jpg",
+					"../images/memberRuben2.jpg",
+					"../images/memberSajil2.jpg",
+				]; //array for imagepicture of members
+				fbLink = [
+					"https://www.facebook.com/hello.buddy.8?mibextid=ZbWKwL",
+					"",
+					"https://www.facebook.com/binishaan.basnet?mibextid=ZbWKwL",
+				];
+				igLink = [
+					"https://www.instagram.com/rounak.bhandari789?igsh=MXNjb2hsa24xOTU1MA==",
+					"",
+					"https://www.instagram.com/binishanbx2?igsh=cG5xa2hsdjI0eDFr",
+				];
+				var qualification = document.getElementById("qualification");
+
+                // Updating the personal information according to the memberID
+				document.getElementById("cvImage").src = img[memberID];
+				document.getElementById("cvName").textContent = fullname[memberID];
+				document.getElementById("cvDOB").textContent = dob[memberID];
+				document.getElementById("cvAddress").textContent = address[memberID];
+				document.getElementById("cvES").textContent = executiveSummary[memberID];
+				document.getElementById("cvMail").textContent = mail[memberID];
+				document.getElementById("cvDesc").textContent = desc[memberID];
+				document.getElementById("cvNum").textContent = pnum[memberID];
+				document.getElementById("fbLink").href = fbLink[memberID];
+				document.getElementById("igLink").href = igLink[memberID];
+				document.getElementById("mailLink").href = "mailto:" + mail[memberID];
+
+                // Updating Qualification of each member according to memberID
+				if (memberID == 0) {
+					qualification.innerHTML = `<tr><th>Degree</th><th>Institution</th><th>Result</th>
+            <tr><td>BSc (hons) in Computing</td><td>Islington College</td><td> First Year</td></tr>                        <tr><td>NEB +2 Science</td><td>New Horizon Collge</td><td>3.6 GPA</td></tr>
+                                       <tr><td>NEB SEE</td><td>KPM Education Pvt. Ltd.</td><td>3.3 GPA </td></tr>`;
+				} else if (memberID == 1) {
+					qualification.innerHTML = `<tr><th>Degree</th><th>Institution</th><th>Result</th>
+            <tr><td>BSc (hons) in Computing</td><td>Islington College</td><td> First Year</td></tr>                        <tr><td>NEB +2 Science</td><td>Trinity International College</td><td>2.77 GPA</td></tr>
+                                       <tr><td>NEB SEE</td><td>The Celebration Co. Ed.</td><td>3.65 GPA </td></tr>`;
+				} else if (memberID == 2) {
+					qualification.innerHTML = `<tr><th>Degree</th><th>Institution</th><th>Result</th>
+            <tr><td>BSc (hons) in Computing</td><td>Islington College</td><td> First Year</td></tr>                        <tr><td>NEB +2 Management</td><td>Global College of Management</td><td>3.85 GPA</td></tr>
+                                       <tr><td>NEB SEE</td><td>Bhaktapur English Secondary School</td><td>3.55 GPA </td></tr>`;
+				} else if (memberID == 3) {
+					qualification.innerHTML = `<tr><th>Degree</th><th>Institution</th><th>Result</th>
+            <tr><td>BSc (hons) in Computing</td><td>Islington College</td><td> Second Year</td></tr>                        <tr><td>NEB +2 Management</td><td>Global College of Management</td><td>3.21 GPA</td></tr>
+                                       <tr><td>NEB SEE</td><td>Pathshala Nepal Foundation</td><td>3.61 GPA </td></tr>`;
+				} else if (memberID == 4) {
+					qualification.innerHTML = `<tr><th>Degree</th><th>Institution</th><th>Result</th>
+            <tr><td>BSc (hons) in Computing</td><td>Islington College</td><td> First Year</td></tr>                        <tr><td>NEB +2 Science</td><td>Kathmandu Model College</td><td>3.47 GPA</td></tr>
+                                       <tr><td>NEB SEE</td><td>Gyankunj Secondary School</td><td>3.30 GPA </td></tr>`;
+				}
+
+				toggleDisplay("cvPopup"); //Changing the display of #cvPopup to flex from none using toggleDisplay function in external JS file 
+			}
+
+            //Function for form validation
+			function formValidate(event) {
+				event.preventDefault(); //prevents default behaviour of form submission from event parameter 
+				
+                //Fetching data of each field using names of the field 
+                var fname = document.forms["feedback-form"]["Fname"].value;
+				var lname = document.forms["feedback-form"]["Lname"].value;
+				var mail = document.forms["feedback-form"]["mail"].value;
+				var contact = document.forms["feedback-form"]["contact"].value;
+				var tarea = document.forms["feedback-form"]["feedbackArea"].value;
+
+                //checking if any field is empty
+				if (fname == "" || lname == "" || mail == "" || contact == "" || tarea == "") {
+					alert("Empty Fields Found !! Please fill up the form properly."); //Throwing alert of empty fields
+				} else {
+					alert("Feedback Sent Successfully"); //Throwing alert of sucessfull submission
+					toggleDisplay("popupForm"); //Hides the Form after submission
+				}
+			}
+		</script>
+        <!-- Internal Javascript ends -->
+	</body>
+</html>

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="name" content="Hour Hand" />
+		<meta
+			name="description"
+			content="Online Watch Store with Amazing Collection of Watches"
+		/>
+		<title>HomePage - Hour Hand</title>
+		<!-- Link tag for Fav Icon -->
+		<link rel="shortcut icon" href="./images/logo.png" type="image/x-icon" />
+		<!-- Linking External CSS For Navbar and Footer Styles -->
+		<link rel="stylesheet" href="./CSS/style.css" />
+
+		<!-- Internal CSS Starts  -->
+		<style>
+			.mainTop {
+				width: 100%;
+				display: flex;
+				margin: auto;
+				justify-content: space-around;
+			}
+
+			/* For Image Slider*/
+			/* Outer Main Div of Image Slider */
+			.slider {
+				padding: 20px 0px;
+				overflow: hidden;
+				display: flex;
+				width: 60%;
+				height: 500px;
+				justify-content: space-around;
+				border-radius: 8px;
+			}
+			/* The Sliding Div */
+			.slide {
+				display: flex;
+				width: 100%;
+				height: 600px;
+				background-size: cover;
+				background-position: center;
+				animation: slideAnimation 7s infinite ease-in-out;
+				border-radius: 8px;
+			}
+
+			.slide img {
+				width: 100%;
+				height: 100%;
+				flex-shrink: 0;
+				object-fit: cover;
+				border-radius: 8px;
+			}
+
+			/* Animation for Sliding Images */
+			@keyframes slideAnimation {
+				0% {
+					transform: translateX(0);
+				}
+				33% {
+					transform: translateX(0);
+				}
+				40% {
+					transform: translateX(-100%);
+				}
+				73% {
+					transform: translateX(-100%);
+				}
+				80% {
+					transform: translateX(-200%);
+				}
+				100% {
+					transform: translateX(-200%);
+				}
+			}
+
+			/* Style For General Buttons */
+			.btn2 {
+				transition: 0.2s;
+				font-weight: bold;
+				font-size: 13px;
+				color: rgb(57, 57, 114);
+				border: 1px solid rgb(57, 57, 114);
+				border-radius: 8px;
+			}
+			/* General Button Hover Effect */
+			.btn2:hover {
+				background-color: rgb(57, 57, 114);
+				color: white;
+			}
+
+			/* Style for Main Headings */
+			.headings {
+				font-size: 40px;
+				margin-left: 15px;
+				color: rgb(23, 23, 80);
+			}
+
+			/* Latest Section */
+			.latestMain {
+				display: flex;
+				justify-content: space-between;
+				gap: 10px;
+				padding: 10px;
+			}
+
+			/* Offer Div in Latest Section */
+			.offer {
+				width: 600px;
+				margin-top: -50px;
+				margin-left: 50px;
+				border: 3px solid rgb(23, 23, 80);
+				padding: 15px 34px;
+				border-radius: 10px;
+				background-color: rgb(247, 248, 253);
+				box-shadow: 0px 3px 5px 0px lightgray;
+				transition: 0.3s ease;
+			}
+
+			/*Offer Div Hover Effect */
+			.offer:hover {
+				background-color: rgb(230, 234, 252);
+				box-shadow: 0px 3px 5px 1px lightgray;
+			}
+
+			.offer img {
+				width: 100%;
+				border-radius: 8px;
+				box-shadow: 0px 3px 5px 0px lightgray;
+				transition: 0.3s ease;
+			}
+			.offer img:hover {
+				transform: scale(1.01);
+				box-shadow: 0px 3px 10px 2px lightgray;
+			}
+            /* Giving Flex layout to the main container of cards */
+			.cardContainer {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				margin-top: -20px;
+				gap: 20px 20px;
+				padding-inline: 15px;
+			}
+			.card {
+				width: auto;
+				background-color: white;
+				border-radius: 5px;
+				transition: 0.1s ease;
+			}
+			.card:hover {
+				box-shadow: 0px 0px 10px 8px lightgray;
+			}
+			.cardImg {
+				width: 250px;
+			}
+			.cardImg img {
+				width: 100%;
+				height: 220px;
+				border-radius: 5px;
+				object-fit: contain;
+			}
+			.card p {
+				font-size: 16px;
+				color: rgb(53, 53, 65);
+				margin: 0 5px;
+				font-family: Arial, Helvetica, sans-serif;
+				font-weight: bold;
+			}
+
+			.card a {
+				text-decoration: none;
+			}
+            /* General class to give child element flex property and make element seperate out */
+			.spaceBetween {
+				display: flex;
+				justify-content: space-between;
+			}
+			.spaceBetween p {
+				color: gray;
+				font-weight: 400;
+				font-size: 18px;
+				margin: 10px 10px 5px 15px;
+				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+			}
+			.spaceBetween button {
+				padding: 7px 15px;
+				margin: 5px 20px 8px 0;
+				border: none;
+				border-radius: 5px;
+				font-size: 15px;
+				background-color: rgb(30, 30, 43);
+				font-weight: bold;
+				transition: 0.1s ease;
+				color: white;
+			}
+			.spaceBetween button:hover {
+				background-color: rgb(49, 49, 66);
+			}
+            /* Featured Items Section */
+			.featuredContainer {
+				padding-inline: 5%;
+			}
+			.featuredSlider {
+				display: flex;
+				justify-content: space-around;
+				overflow: hidden;
+				width: 380px;
+				height: 250px;
+				border-radius: 10px;
+				box-shadow: 0px 2px 5px 0px gray;
+			}
+			.featuredImg {
+				display: flex;
+				width: 100%;
+				height: 100%;
+				background-size: cover;
+				background-position: center;
+				animation: slideAnimation 7s infinite ease-in-out;
+			}
+			.featuredItems img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				flex-shrink: 0;
+			}
+			.featuredItems {
+				display: flex;
+				gap: 10px;
+			}
+			.featuredDesc h1 {
+				font-size: 30px;
+				margin-top: 8px;
+				color: rgb(10, 10, 32);
+			}
+			.featuredDesc p {
+				font-size: 16px;
+				margin-top: -15px;
+				color: rgb(33, 33, 62);
+			}
+			.featuredDesc a {
+				text-underline-offset: 5px;
+				color: rgb(28, 28, 45);
+				font-weight: bold;
+				font-size: 20px;
+				margin-left: 5px;
+				transition: 0.1s ease-in-out;
+				padding: 5px;
+			}
+			.featuredDesc a:hover {
+				text-underline-offset: 8px;
+			}
+		</style>
+        <!-- Internal CSS Ends -->
+	</head>
+
+	<body style="background-color: rgb(233, 233, 247)">
+		<header>
+            <!-- Internal Link -->
+			<a id="top"></a> 
+            <!-- Navigation Bar -->
+			<nav>
+				<div class="brand">
+					<img src="./images/logo.png" alt="Brand Logo" />
+					<a href="./index.html">
+						<h1>Hour Hand</h1>
+					</a>
+				</div>
+				<div class="links">
+					<ul>
+						<li><a href="#top" style="text-decoration: underline; color: yellow">Home</a></li>
+						<li><a href="./HTML/product.html">Product</a></li>
+						<li><a href="./HTML/AboutUs.html">About</a></li>
+						<li><a href="./HTML/Research.html">Research</a></li>
+						<li><a href="./HTML/blogpage.html">Blog</a></li>
+					</ul>
+				</div>
+			</nav>
+            <!-- Pseudo Div to cover the empty space created by sticky navbar -->
+			<div class="pseudoNav"></div>
+		</header>
+		<main>
+            <!-- Top Section -->
+			<div class="mainTop">
+				<div class="slider">
+					<div class="slide">
+						<img src="./images/imageslider1.jpg" alt="Image-1" />
+						<img src="./images/imageslider2.jpg" alt="Image-2" />
+						<img src="./images/imageslider3.jpg" alt="Image-3" />
+					</div>
+				</div>
+				<div class="mainText" style="margin-top: 40px">
+					<h1>
+						<span
+							style="
+								font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+								font-size: 60px;
+								margin-left: -50px;
+								color: rgb(71, 71, 118);
+							"
+						>
+							Explore
+						</span>
+						<br />
+						<span style="font-size: 80px; margin-left: 40px; color: rgb(38, 38, 112)">Amazing</span>
+						<br />
+						<span style="font-size: 50px; color: rgb(67, 67, 102); margin-left: -30px">Collection of</span>
+						<br />
+						<span style="color: rgb(13, 4, 63); font-size: 80px; margin: 30px">'Watches'</span>
+						<hr />
+					</h1>
+
+                    <!-- Takes to Latest Section through Internal Link -->
+					<a href="#latest" style="text-decoration: none">
+						<button
+							style="display: flex; margin: 40px auto; padding: 8px 20px; border-radius: 15px; border: 1px solid"
+							class="btn2"
+						>
+							Explore Now
+						</button>
+					</a>
+				</div>
+			</div>
+			<!-- Top Section Ends -->
+
+			<!-- Latest watch item Section Starts -->
+			<a id="latest"></a>
+			<section class="latest" style="margin-top: 150px">
+				<div class="latestMain">
+					<div class="offer">
+                        <!-- Using Inline CSS to give style for elements of offer section -->
+						<a href="./HTML/product.html" style="text-decoration: none">
+							<h1 style="font-size: 30px; margin-top: 5px; color: rgb(23, 23, 80); text-align: center">
+								Special Offer
+							</h1>
+							<img src="./images/offer.jpg" alt="offerImage" />
+							<p
+								style="
+									font-size: 18px;
+									text-align: center;
+									font-weight: bold;
+									font-family: Georgia, 'Times New Roman', Times, serif;
+									color: rgb(35, 35, 40);
+								"
+							>
+								Golden Terrox Premium
+							</p>
+							<p
+								style="
+									font-size: 30px;
+									font-weight: 600;
+									text-align: center;
+									font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+									margin: 0;
+									color: #333;
+								"
+							>
+								<span style="font-size: 20px; font-weight: 400; color: #666; text-decoration: line-through">
+									Rs. 15,999
+								</span>
+								Rs. 12,799
+							</p>
+							<p style="text-align: center; margin-top: 0; color: rgb(229, 14, 14)">-20% Off</p>
+							<div class="soldItems spaceBetween">
+								<p>
+									Sold :
+									<spanc style="color: rgb(71, 67, 67); font-weight: bold">36</spanc>
+								</p>
+								<p>
+									Available:
+									<span style="color: rgb(71, 67, 67); font-weight: bold">4</span>
+								</p>
+							</div>
+							<div
+								class="soldDisplayOut"
+								style="width: 100%; background-color: lightgrey; height: 20px; border-radius: 10px"
+							>
+								<div
+									class="soldDisplayIn"
+									style="width: 90%; background-color: rgb(128, 127, 195); height: 100%; border-radius: 10px"
+								></div>
+							</div>
+						</a>
+					</div>
+					<div class="rightLatest">
+						<h1 class="headings" style="margin: -50px 0 40px 65px">LATEST WATCHES</h1>
+						<div class="cardContainer">
+							<div class="card">
+								<a href="./HTML/product.html">
+									<div class="cardImg"><img src="./images/titan.jpg" alt="Watch Picture" /></div>
+									<p>Titan Quartz Analog Black Dial</p>
+									<div class="spaceBetween">
+										<p>Rs.7499.00</p>
+										<a href="./HTML/product.html">
+											<button>Buy Now</button>
+										</a>
+									</div>
+								</a>
+							</div>
+							<div class="card">
+								<a href="./HTML/product.html">
+									<div class="cardImg"><img src="./images/applewatch.jpg" alt="Watch Picture" /></div>
+									<p>Apple Watch SE</p>
+									<div class="spaceBetween">
+										<p>Rs.35,499</p>
+										<a href="./HTML/product.html">
+											<button>Buy Now</button>
+										</a>
+									</div>
+								</a>
+							</div>
+							<div class="card">
+								<a href="./HTML/product.html">
+									<div class="cardImg"><img src="./images/naviforce.jpg" alt="Watch Picture" /></div>
+									<p>Naviforce NF8052</p>
+									<div class="spaceBetween">
+										<p>Rs.3,150</p>
+										<a href="./HTML/product.html">
+											<button>Buy Now</button>
+										</a>
+									</div>
+								</a>
+							</div>
+							<div class="card">
+								<a href="./HTML/product.html">
+									<div class="cardImg"><img src="./images/applewatch2.jpg" alt="Watch Picture" /></div>
+									<p>Apple Watch Ultra 2</p>
+									<div class="spaceBetween">
+										<p>Rs.1,29,999</p>
+										<a href="./HTML/product.html">
+											<button>Buy Now</button>
+										</a>
+									</div>
+								</a>
+							</div>
+							<div class="card">
+								<a href="./HTML/product.html">
+									<div class="cardImg"><img src="./images/naviforce2.jpg" alt="Watch Picture" /></div>
+									<p>Naviforce NFS1006 Solar Beige</p>
+									<div class="spaceBetween">
+										<p>Rs.15,999</p>
+										<a href="./HTML/product.html">
+											<button>Buy Now</button>
+										</a>
+									</div>
+								</a>
+							</div>
+							<div class="card">
+								<a href="./HTML/product.html">
+									<div class="cardImg"><img src="./images/millenium.jpg" alt="Watch Picture" /></div>
+									<p>Millenium Women's Rhinestone</p>
+									<div class="spaceBetween">
+										<p>Rs.7,999</p>
+										<a href="./HTML/product.html">
+											<button>Buy Now</button>
+										</a>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Latest Section Ends -->
+
+			<!-- Trending Section Starts -->
+			<a id="trending"></a>
+			<section class="trending" style="margin-top: 150px">
+				<div class="trendingMain">
+					<h1 class="headings" style="text-align: center; margin-bottom: 20px">TRENDING WATCHES</h1>
+					<hr style="margin-bottom: 50px" />
+					<div class="cardContainer">
+						<div class="card">
+							<a href="./HTML/product.html">
+								<div class="cardImg"><img src="./images/titan2.jpg" alt="Watch Picture" /></div>
+								<p>Titan Quartz Analog Black Dial</p>
+								<div class="spaceBetween">
+									<p>Rs.3,819.00</p>
+									<a href="./HTML/product.html">
+										<button>Buy Now</button>
+									</a>
+								</div>
+							</a>
+						</div>
+						<div class="card">
+							<a href="./HTML/product.html">
+								<div class="cardImg"><img src="./images/applewatch3.jpg" alt="Watch Picture" /></div>
+								<p>Apple Watch Series 10</p>
+								<div class="spaceBetween">
+									<p>Rs.55,999</p>
+									<a href="./HTML/product.html">
+										<button>Buy Now</button>
+									</a>
+								</div>
+							</a>
+						</div>
+						<div class="card">
+							<a href="./HTML/product.html">
+								<div class="cardImg"><img src="./images/millenium2.jpg" alt="Watch Picture" /></div>
+								<p>Millenium Sleek Design</p>
+								<div class="spaceBetween">
+									<p>Rs.1,699</p>
+									<a href="./HTML/product.html">
+										<button>Buy Now</button>
+									</a>
+								</div>
+							</a>
+						</div>
+						<div class="card">
+							<a href="./HTML/product.html">
+								<div class="cardImg"><img src="./images/rolex.jpg" alt="Watch Picture" /></div>
+								<p>Rolex Deepsea</p>
+								<div class="spaceBetween">
+									<p>Rs. 87,43,000</p>
+									<a href="./HTML/product.html">
+										<button>Buy Now</button>
+									</a>
+								</div>
+							</a>
+						</div>
+						<div class="card">
+							<a href="./HTML/product.html">
+								<div class="cardImg"><img src="./images/bestwin.jpg" alt="Watch Picture" /></div>
+								<p>Bestwin BW911 Men's</p>
+								<div class="spaceBetween">
+									<p>Rs.3,150</p>
+									<a href="./HTML/product.html">
+										<button>Buy Now</button>
+									</a>
+								</div>
+							</a>
+						</div>
+						<div class="card">
+							<a href="./HTML/product.html">
+								<div class="cardImg"><img src="./images/forsining3.jpg" alt="Watch Picture" /></div>
+								<p>
+									Forsining H009M Skeleton
+									<br />
+									Mechanical
+								</p>
+								<div class="spaceBetween">
+									<p>Rs.1,29,999</p>
+									<a href="./HTML/product.html">
+										<button>Buy Now</button>
+									</a>
+								</div>
+							</a>
+						</div>
+						<div class="card">
+							<a href="./HTML/product.html">
+								<div class="cardImg"><img src="./images/naviforce3.jpg" alt="Watch Picture" /></div>
+								<p>Naviforce NF5014 Mesh Stainless</p>
+								<div class="spaceBetween">
+									<p>Rs.2,899</p>
+									<a href="./HTML/product.html">
+										<button>Buy Now</button>
+									</a>
+								</div>
+							</a>
+						</div>
+						<div class="card">
+							<a href="./HTML/product.html">
+								<div class="cardImg"><img src="./images/Forsining.jpg" alt="Watch Picture" /></div>
+								<p>
+									Forsining H009M Skeleton
+									<br />
+									Mechanical Top
+								</p>
+								<div class="spaceBetween">
+									<p>Rs.644</p>
+									<a href="./HTML/product.html">
+										<button>Buy Now</button>
+									</a>
+								</div>
+							</a>
+						</div>
+						<div class="card">
+							<a href="./HTML/product.html">
+								<div class="cardImg"><img src="./images/rolex2.jpg" alt="Watch Picture" /></div>
+								<p>Rolex Day-Date 36</p>
+								<div class="spaceBetween">
+									<p>Rs.6,17,500</p>
+									<a href="./HTML/product.html">
+										<button>Buy Now</button>
+									</a>
+								</div>
+							</a>
+						</div>
+						<div class="card">
+							<a href="./HTML/product.html">
+								<div class="cardImg"><img src="./images/forsining2.jpg" alt="Watch Picture" /></div>
+								<p>
+									Forsining TM340 Automatic
+									<br />
+									Mechanical
+								</p>
+								<div class="spaceBetween">
+									<p>Rs.644</p>
+									<a href="./HTML/product.html">
+										<button>Buy Now</button>
+									</a>
+								</div>
+							</a>
+						</div>
+						<div class="card">
+							<a href="./HTML/product.html">
+								<div class="cardImg"><img src="./images/millenium.jpg" alt="Watch Picture" /></div>
+								<p>Millenium Women's Rhinestone</p>
+								<div class="spaceBetween">
+									<p>Rs.7,999</p>
+									<a href="./HTML/product.html">
+										<button>Buy Now</button>
+									</a>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+            <!-- Trending Section Ends -->
+
+
+			<!--Featuerd Wathches-->
+			<section class="featured" style="margin-top: 150px; padding-bottom: 80px">
+				<h1 class="headings" style="text-align: center; margin-bottom: 20px">FEATURED WATCHES</h1>
+				<hr style="margin-bottom: 50px" />
+
+				<div class="featuredContainer">
+					<div class="featuredItems">
+						<div class="featuredSlider">
+							<a href="./HTML/product.html">
+								<div class="featuredImg">
+									<img src="./images/featured1.jpg" alt="Watch Picture" />
+									<img src="./images/featured2.jpg" alt="Watch Picture" />
+									<img src="./images/featured3.jpg" alt="Watch Picture" />
+								</div>
+							</a>
+						</div>
+						<div class="featuredDesc">
+							<h1>Stainless Steel Watches</h1>
+							<p>
+								Check out amazing collection of Stainless Steel Watches
+								<br />
+								with wide range of designs in reasonable prices.
+							</p>
+							<a href="./HTML/product.html">Check Out</a>
+						</div>
+					</div>
+					<div class="featuredItems" style="justify-content: right; margin-top: -2%">
+						<div class="featuredDesc">
+							<h1>Military Design Watches</h1>
+							<p>
+								Check out branded collection of military design watches
+								<br />
+								with high durability and unique styles.
+							</p>
+							<a href="./HTML/product.html" style="margin-left: 0px">Check Out</a>
+						</div>
+						<div class="featuredSlider">
+							<a href="./HTML/product.html">
+								<div class="featuredImg">
+									<img src="./images/featured4.jpg" alt="Watch Picture" />
+									<img src="./images/featured5.jpg" alt="Watch Picture" />
+									<img src="./images/featured6.jpg" alt="Watch Picture" />
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="featuredItems" style="margin-top: -2%">
+						<div class="featuredSlider">
+							<a href="./HTML/product.html">
+								<div class="featuredImg">
+									<img src="./images/featured7.jpg" alt="Watch Picture" />
+									<img src="./images/featured8.jpg" alt="Watch Picture" />
+									<img src="./images/featured9.jpg" alt="Watch Picture" />
+								</div>
+							</a>
+						</div>
+						<div class="featuredDesc">
+							<h1>Wooden Design Watches</h1>
+							<p>
+								Check out various Wooden Design watches
+								<br />
+								with great strength and glamourous looks.
+							</p>
+							<a href="./HTML/product.html">Check Out</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Featured Section Ends -->
+		</main>
+		<!-- Main Section Ends -->
+
+		<!-- Footer Section Starts -->
+		<footer>
+			<p>Copyright © 2025, All Rights Reserved.</p>
+			<p>Hour Hand®</p>
+		</footer>
+        <!-- Footer Section Ends -->
+	</body>
+</html>
