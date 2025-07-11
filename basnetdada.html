@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movie Recommendation App </title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+    
+    
+    <style>
+        body{
+            background-image: url(bg.jpg);
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            height: 700px;
+            color: aliceblue;
+            width: 700px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    
+        .logo{
+            height: 90px;
+            position: relative;
+            top: 20%;
+        }
+        .title{
+            font-family: 'Poppins';
+            font-size: 17px;
+            position: relative;
+            top: 19%;
+        }
+        .blog{
+            font-size: 30px;
+            font-family: 'Poppins';
+            position: relative;
+            top: 16%;
+            }
+        .text{
+            font-family: 'Poppins';
+            font-size: 12px;
+            position:relative;
+            top: 12%;
+        
+        }
+
+         ::placeholder{
+            
+            color: white;
+            font-family: 'Poppins';
+            font-size: 12px;
+           
+        }
+        textarea{
+            color: green;
+            border: 0cap;
+            padding-top: 10px; 
+           padding-left: 10px;
+        }
+        textarea:focus{
+           color: white;
+           border: none;
+           text-decoration: dashed;
+
+        }
+        
+       .field{
+            width: 700px;
+            height: 100px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(130, 126, 126) ;
+            opacity: 0.5;
+            position: relative;
+            top: 40%;
+            }
+    .fb{
+            background-color:rgb(130, 126, 126) ;
+            resize: none;
+            position: relative;
+            top: 10%;
+            right: 15%;
+            outline: none;
+         }
+    .btn{
+        border-radius: 5px;
+        border: none;
+        background-color:#50C878;
+        width: 50px;
+        height: 30px;
+        position: fixed;
+        top: 87%;
+        right: 28%;
+    }
+    input[type=submit]
+    {
+        color: white;
+        font-family:'Poppins';
+        font-size: 20px;
+        
+    }
+      
+    </style>
+</head>
+<body>
+
+    <div class="container">
+            <div class="box">
+                <img src="logo.png" alt="Logo" class="logo">
+                <h3 class="title">Welcome to MovieMate</h3>
+                <h2 class="blog" >Struggling to find the perfect movie?</h2>
+                <p class="text">Let our AI-powered recommendation system suggest the best movies and TV shows!
+                    </p>
+                    <p style="font-family: 'Poppins';
+            font-size: 12px; position: relative; top: 10%;">🎬✨ Let’s get started</p>
+            <div class="field">
+               
+                
+            <textarea class="fb" rows="5" cols="60"  placeholder="Tell us what you like, and we'll find the perfect movie"></textarea>
+            </div>
+            <a href="https://github.com/BinishaanBasnet"><img src="git.png" alt="github" style="height: 30px; position:fixed;top: 87%;right: 70%;"></a>
+            <a href="https://www.linkedin.com/in/binishaan-basnet-b04535246/"><img src="link.png" alt="linkedin" style="height:45px; position: fixed;top: 86%;right:67%"></a>
+            <a href=""><img src="doc.png" alt="README" style="height: 30px; position: fixed;top: 640px;right: 65%;"></a>
+            <form action="">
+                <input type="submit"   value=">>" class="btn">
+            </form>
+            </div>
+
+    </div>
+</body>
+</html>
